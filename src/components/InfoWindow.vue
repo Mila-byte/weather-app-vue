@@ -1,20 +1,15 @@
 <template>
-  <div id="app">
-
-  </div>
+<div id="info">
+  
+</div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'App',
-  components: {
-
-  }
+  name: "InfoWindow"
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

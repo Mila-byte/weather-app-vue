@@ -1,20 +1,15 @@
 <template>
-  <div id="app">
+<div id="map">
 
-  </div>
+</div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'App',
-  components: {
-
-  }
+  name: "Map"
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
