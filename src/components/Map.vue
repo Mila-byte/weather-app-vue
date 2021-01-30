@@ -30,6 +30,14 @@ export default {
       bounds: null
     };
   },
+  created() {
+    let geoLocation = navigator.geolocation
+    function getPosition (pos) {
+      let coord = pos.coords
+      return [coord.latitude, coord.longitude]
+    }
+   this.center = geoLocation.getCurrentPosition(getPosition)
+  },
   computed: {
     getLocation () {
       if(this.coord.length) {
