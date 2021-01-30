@@ -22,14 +22,13 @@ export default {
   },
   methods: {
     async getData () {
-      if(this.city) {
         await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=fdc5c7b31d822cd909a6ffa9fab71737`)
             .then(res=>res.json())
             .then(res=> {
-              if (res.cod === "404") {
+              if (res.cod >= 400 && res.cod < 500) {
                 this.city = res.message
               } else if (res.cod === 200) {
-                this.temp = res.main.temp
+                this.temp = +res.main.temp.toFixed()
                 this.pressure = res.main.pressure
                 this.windSpeed = res.wind.speed
                 this.$emit('getLocation', res.coord)
@@ -37,7 +36,6 @@ export default {
               console.log(res)
             })
             .catch(err => console.log(err))
-      }
     }
   }
 }
